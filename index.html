@@ -1,0 +1,129 @@
+<!doctype html> 
+<html> 
+<head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TAB万能收款码</title>
+    
+    <script>
+    var setting = {
+        qqUrl: "https://i.qianbao.qq.com/wallet/sqrcode.htm?m=tenpay&f=wallet&a=1&ac=CAEQ9MGF5wcYqfy08gU%3D_xxx_sign&u=2095145204&n=%E9%9E%A0%E9%B9%8F%E6%95%8F",
+        wechatUrl: "wxp://f2f0rirRwsQH_ChqCBSjD46abB3obH7j-6d7",
+        aliUrl: "https://qr.alipay.com/tsx099660rrv2j0i8xopgf3",
+        qrcodeApi: "http://qr.liantu.com/api.php?text="    
+    }
+    </script>
+    
+    <style>
+    * {
+        margin: 0; padding: 0;
+        font-family: Microsoft yahei;
+    }
+    body {
+        background-color: #fff;
+    }
+    .code-item {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        padding-bottom: 1px;
+        display: none;
+        background-color: #5c92ef;
+    }
+    .code-title {
+        height: 100px;
+        background-color: #f2f2f2;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 60%;
+    }
+    .code-area {
+        text-align: center;
+    }
+    .code-area>img {
+        margin: 80px 0;
+        width: 60%;
+        min-width: 100px;
+    }
+    .code-footer {
+        height: 80px;
+        text-align: center;
+        background-color: #fff;
+        color: #666;
+        line-height: 40px;
+        font-size: 20px;
+        margin: -2px 2px 2px 2px;
+    }
+    
+    #code-all>.code-title {
+        background-image: url("img/money.png");
+	}
+    
+    #code-qq {
+        background-color: #54b4ef;
+    }
+    #code-qq>.code-title {
+        background-image: url("img/money.png");
+	}
+    
+    #code-wechat {
+        background-color: #54bc6e;
+    }
+    #code-wechat>.code-title { 
+        background-image: url("img/money.png");
+	}
+	
+	.money {
+        height: 80px;
+        text-align: center;
+        line-height: 180px;
+        font-size: 18px;
+        margin: -2px 2px 2px 2px;
+    }
+    </style>    
+
+</head>
+<body>
+    <div class="code-item" id="code-all">
+        <div class="code-title"><div class="money">本二维码支持以上APP向我付款</div></div>
+        <div class="code-area">
+            <img id="page-url" src="img/money.png">
+        </div>
+        <div class="code-footer">扫描或长按以上二维码向我付款<br />Copyright © 2018 IFWLZS</div>
+    </div>
+    <div class="code-item" id="code-qq">
+        <div class="code-title"><div class="money">本二维码支持以上APP向我付款</div></div>
+        <div class="code-area">
+            <img id="qq-url" src="img/money.png">
+        </div>
+        <div class="code-footer">扫描或长按以上二维码向我付款<br />Copyright © 2018 IFWLZS</div>
+    </div>
+    <div class="code-item" id="code-wechat">
+        <div class="code-title"><div class="money">本二维码支持以上APP向我付款</div></div>
+        <div class="code-area">
+            <img id="wechat-url" src="img/money.png">
+        </div>
+        <div class="code-footer">扫描或长按以上二维码向我付款<br />Copyright © 2018 IFWLZS</div>
+    </div>
+    
+    <script>
+    if(navigator.userAgent.match(/Alipay/i)) {
+        window.location.href = setting.aliUrl; 
+    } else if(navigator.userAgent.match(/MicroMessenger\//i)) {
+        document.getElementById("wechat-url").src = setting.qrcodeApi + urlEncode(setting.wechatUrl);
+        document.getElementById("code-wechat").style.display = "block";
+    } else if(navigator.userAgent.match(/QQ\//i)) {
+        document.getElementById("qq-url").src = setting.qrcodeApi + urlEncode(setting.qqUrl);
+        document.getElementById("code-qq").style.display = "block";
+    } else {
+        document.getElementById("page-url").src = setting.qrcodeApi + urlEncode(window.location.href);
+        document.getElementById("code-all").style.display = "block";
+    }
+    function urlEncode(String) {
+        return encodeURIComponent(String).replace(/'/g,"%27").replace(/"/g,"%22");	
+    }
+    </script>
+
+</body>
+</html>
