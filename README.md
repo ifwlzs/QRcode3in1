@@ -12,14 +12,15 @@
 
 5、修改添加支付宝收款码信息到index.html文件中aliUrl的链接
 
-6、将修改后的工程上传至服务器
+6、将修改后的工程保存并上传至服务器
 
-7、没用服务器的童鞋，可以想我一样使用github 或者 码云
+7、没有服务器的童鞋，可以想我一样挂在 github 或者 码云 上
 
 # github搭建
-1、按照如上1-5修改index.html文件
+1、按照如上步骤1-5修改index.html文件
 
-2、新建github项目，并上传index文件及图片文件
+2、新建github项目，并上传index.html文件及img/money.png图片文件
+(如果是小白建议你直接包含img目录，全部上传，懂html的可以自己修改index文件中的图片地址）
 
 3、点击项目的Settings，找到GitHub Pages下的Source，将其选项改为master branch
 
@@ -27,4 +28,6 @@
 
 5、访问域名即可查看三合一二维码
 
-6、无域名的可以访问http://你的github账号名.github.io/二维码的项目名称
+6、无域名的可以访问http://**你的github账号名**.github.io/**收款码项目的名称**
+
+
